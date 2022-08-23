@@ -1,0 +1,114 @@
+Assignment-2
+================================================================
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ pwd
+/c/Users/DELL
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ cd /E/
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E
+$ git init Ignore
+Initialized empty Git repository in E:/Ignore/.git/
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E
+$ cd Ignore
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ ls -lr
+total 0
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ echo "Hello" >> hello.log
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ echo "HI everyone" >> hi.log
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ echo "Welcome" >> welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ echo "example for ignoring files" >> example.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        example.txt
+        hello.log
+        hi.log
+        welcome.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ notepad++ .gitignore
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ cat .gitignore
+*.log
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        example.txt
+        welcome.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ git add .
+warning: in the working copy of 'example.txt', LF will be replaced by CRLF the next
+warning: in the working copy of 'welcome.txt', LF will be replaced by CRLF the next
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ git commit -m "ignoring .log files are done"
+[master (root-commit) 1b01281] ignoring .log files are done
+ 3 files changed, 3 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 example.txt
+ create mode 100644 welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$  mkdir logfolder
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ git remote add origin https://github.com/Salini19/Ignore.git
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Ignore (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (5/5), 349 bytes | 116.00 KiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Salini19/Ignore.git
+ * [new branch]      master -> master
+
+

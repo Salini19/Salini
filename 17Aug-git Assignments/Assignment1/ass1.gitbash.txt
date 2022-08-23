@@ -1,0 +1,146 @@
+Assignment-1
+==========================================================================
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ git version
+git version 2.37.2.windows.2
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ git config --global --list
+user.name=Salini
+user.email=shalini021037@gmail.com
+core.editor=notepad++.exe -multiInst -noession
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ notepad++
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ notepad++.exe bash -profile
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ git config --global -e
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ pwd
+/c/Users/DELL
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ cd /E/
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E
+$ git init GitDemo
+Initialized empty Git repository in E:/GitDemo/.git/
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E
+$ ls -la
+total 12
+drwxr-xr-x 1 DELL 197610 0 Jun 10 23:11 '$RECYCLE.BIN'/
+drwxr-xr-x 1 DELL 197610 0 Aug 17 18:13  ./
+drwxr-xr-x 1 DELL 197610 0 Aug 12 16:21  ../
+drwxr-xr-x 1 DELL 197610 0 Aug 17 13:46  .net/
+drwxr-xr-x 1 DELL 197610 0 Aug  9 18:19 'Angular Projects'/
+drwxr-xr-x 1 DELL 197610 0 Aug 17 18:13  GitDemo/
+drwxr-xr-x 1 DELL 197610 0 Jun 11 21:35 'System Volume Information'/
+drwxr-xr-x 1 DELL 197610 0 Aug 15 14:42  git/
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E
+$ cd GitDemo
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ echo "welcome to the version" >> welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ cat welcome.txt
+welcome to the version
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ ls -la
+total 9
+drwxr-xr-x 1 DELL 197610  0 Aug 17 18:18 ./
+drwxr-xr-x 1 DELL 197610  0 Aug 17 18:16 ../
+drwxr-xr-x 1 DELL 197610  0 Aug 17 18:13 .git/
+-rw-r--r-- 1 DELL 197610 23 Aug 17 18:18 welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        welcome.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ git commit -m "one line added to file"
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        welcome.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ git add .
+warning: in the working copy of 'welcome.txt', LF will be replaced by CRLF the next time Git touches it
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ git commit -m "1st line is added"
+[master (root-commit) 300168a] 1st line is added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ git log -oneline
+fatal: unrecognized argument: -oneline
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ git log --oneline
+300168a (HEAD -> master) 1st line is added
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ git remote add origin https://github.com/Salini19/GitDemo1.git
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ git push origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 238 bytes | 238.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Salini19/GitDemo1.git
+ * [new branch]      master -> master
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ cat welcome.txt
+welcome to the version
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ git pull origin master
+remote: Enumerating objects: 11, done.
+remote: Counting objects: 100% (11/11), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 9 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (9/9), 1.91 KiB | 52.00 KiB/s, done.
+From https://github.com/Salini19/GitDemo1
+ * branch            master     -> FETCH_HEAD
+   300168a..606eb44  master     -> origin/master
+Updating 300168a..606eb44
+Fast-forward
+ welcome.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ cat welcome.txt
+welcome to the version
+Hello all.!!
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$ git config --global -e
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/GitDemo (master)
+$

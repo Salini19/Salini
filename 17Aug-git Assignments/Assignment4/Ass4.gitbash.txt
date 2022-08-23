@@ -1,0 +1,198 @@
+Assignmnet-4
+==============================================================
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ cd /E/
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E
+$ git init MergeConflicts
+Initialized empty Git repository in E:/MergeConflicts/.git/
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E
+$ cd MergeConflicts
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git branch
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ echo "Welcome to the example of resolving the conflicts during merge" >>welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git add .
+warning: in the working copy of 'welcome.txt', LF will be replaced by CRLF the next time Git touches it
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git commit -m "welcome.txt file added"
+[master (root-commit) 1cdc013] welcome.txt file added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git branch
+* master
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git branch GitWork
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git branch
+  GitWork
+* master
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git checkout GitWork
+Switched to branch 'GitWork'
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (GitWork)
+$ notepad++ hello.xml
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (GitWork)
+$ git add .
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (GitWork)
+$ git commit -m "hello.xml added to GitWork branch"
+[GitWork 4ca83c0] hello.xml added to GitWork branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (GitWork)
+$ git status
+On branch GitWork
+nothing to commit, working tree clean
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (GitWork)
+$ git checkout master
+Switched to branch 'master'
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ notepad++ hello.xml
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git add .
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git commit -m "hello.xml is added to master branch"
+[master 13b7235] hello.xml is added to master branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.xml
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git log --graph --oneline --decorate --all
+* 13b7235 (HEAD -> master) hello.xml is added to master branch
+| * 4ca83c0 (GitWork) hello.xml added to GitWork branch
+|/
+* 1cdc013 welcome.txt file added
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git diff master..GitWork
+diff --git a/hello.xml b/hello.xml
+index 139e484..8a203c2 100644
+--- a/hello.xml
++++ b/hello.xml
+@@ -1 +1 @@
+-This line is from Master Branch
+\ No newline at end of file
++This line is from GitWork Branch
+\ No newline at end of file
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git difftool master..GitWork
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git merge GitWork
+Auto-merging hello.xml
+CONFLICT (add/add): Merge conflict in hello.xml
+Automatic merge failed; fix conflicts and then commit the result.
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master|MERGING)
+$ git mergetool
+Merging:
+hello.xml
+
+Normal merge conflict for 'hello.xml':
+  {local}: created file
+  {remote}: created file
+error: invalid path './hello_BASE_1341.xml'
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master|MERGING)
+$ git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   hello.xml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.xml.orig
+
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master|MERGING)
+$ cat hello.xml
+This line is from Master Branch
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master|MERGING)
+$ git add .
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master|MERGING)
+$ git commit -m "hello.xml file is merged"
+[master f7180b8] hello.xml file is merged
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/MergeConflicts (master)
+$ git log --oneline
+f7180b8 (HEAD -> master) hello.xml file is merged
+13b7235 hello.xml is added to master branch
+4ca83c0 (GitWork) hello.xml added to GitWork branch
+1cdc013 welcome.txt file added
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/mergeconflicts (master)
+$ echo hello.xml >>.gitignore
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/mergeconflicts (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/mergeconflicts (master)
+$ git add .
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/mergeconflicts (master)
+$ git commit -m "file added to .gitignore"
+[master 84439c4] file added to .gitignore
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/mergeconflicts (master)
+$ git branch -d GitWork
+Deleted branch GitWork (was 440a91c).
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/mergeconflicts (master)
+$ git branch
+* master
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/mergeconflicts (master)
+$ git log --graph --oneline --decorate --all
+* 84439c4 (HEAD -> master) file added to .gitignore
+*   52f144d hello.xml is merged
+|\
+| * 440a91c hello.xml file added to gitWork branch
+* | fc53aa1 hello.xml file added to master branch
+|/
+* 6bc6180 welcome.txt file added
+

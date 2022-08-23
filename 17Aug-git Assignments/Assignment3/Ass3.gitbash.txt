@@ -1,0 +1,261 @@
+Assignment-3
+===========================================================
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ pwd
+/c/Users/DELL
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ cd /E/
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E
+$ git init Branching
+Initialized empty Git repository in E:/Branching/.git/
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E
+$ cd Barnching
+bash: cd: Barnching: No such file or directory
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E
+$ cd Branching
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ touch hello.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        hello.txt
+
+nothing added to commit but untracked files present (use "git add" to tra
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git add .
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git commit -m "initial commit"
+[master (root-commit) b6e70ed] initial commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 hello.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git branch
+* master
+
+Assignmnet-3
+=====================================================================
+BRANCHING:
+=====================================================================
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git branch first
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git branch
+  first
+* master
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git checkout branch
+error: pathspec 'branch' did not match any file(s) known to git
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git checkout first
+Switched to branch 'first'
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ echo "welcome to all" >> welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ git add .
+warning: in the working copy of 'welcome.txt', LF will be replaced by CRLext time Git touches it
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ git commit -m "added a file to first branch"
+[first 525c08d] added a file to first branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ git branch
+* first
+  master
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ ls -la
+total 9
+drwxr-xr-x 1 DELL 197610  0 Aug 18 22:31 ./
+drwxr-xr-x 1 DELL 197610  0 Aug 18 22:22 ../
+drwxr-xr-x 1 DELL 197610  0 Aug 18 22:32 .git/
+-rw-r--r-- 1 DELL 197610  0 Aug 18 22:25 hello.txt
+-rw-r--r-- 1 DELL 197610 15 Aug 18 22:31 welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ ls
+hello.txt  welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ git checkout master
+Switched to branch 'master'
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git checkout first
+Switched to branch 'first'
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ echo "Example for branching" >> example.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ git status
+On branch first
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        example.txt
+
+nothing added to commit but untracked files present (use "git add" to tra
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ git add .
+warning: in the working copy of 'example.txt', LF will be replaced by CRLext time Git touches it
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ git commit -m "added an extra file to first branch"
+[first 2be1991] added an extra file to first branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 example.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ git status
+On branch first
+nothing to commit, working tree clean
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ git remote add origin https://github.com/Salini19/Merging.git
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ git checkout master
+Switched to branch 'master'
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git remote add origin https://github.com/Salini19/Merging.git
+error: remote origin already exists.
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git push origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 213 bytes | 106.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Salini19/Merging.git
+ * [new branch]      master -> master
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git checkout first
+Switched to branch 'first'
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (first)
+$ git push origin first
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 615 bytes | 615.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'first' on GitHub by visiting:
+remote:      https://github.com/Salini19/Merging/pull/new/first
+remote:
+To https://github.com/Salini19/Merging.git
+ * [new branch]      first -> first
+
+============================================================================
+MERGING
+===========================================================================
+
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ git config --global merge.tool p4merge
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ pwd
+/c/Users/DELL
+
+DELL@DESKTOP-1I1KGJE MINGW64 ~
+$ cd /E/
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E
+$ cd Branching
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ p4merge
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git diff master..first
+diff --git a/example.txt b/example.txt
+new file mode 100644
+index 0000000..85a01cf
+--- /dev/null
++++ b/example.txt
+@@ -0,0 +1 @@
++Example for branching
+diff --git a/welcome.txt b/welcome.txt
+new file mode 100644
+index 0000000..4b9e0dc
+--- /dev/null
++++ b/welcome.txt
+@@ -0,0 +1 @@
++welcome to all
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git difftool master..first
+
+Viewing (1/2): 'example.txt'
+Launch 'p4merge' [Y/n]? yes
+
+Viewing (2/2): 'welcome.txt'
+Launch 'p4merge' [Y/n]? yes
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git merge first
+Updating b6e70ed..2be1991
+Fast-forward
+ example.txt | 1 +
+ welcome.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 example.txt
+ create mode 100644 welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ cat example.txt
+Example for branching
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ ls -la
+total 10
+drwxr-xr-x 1 DELL 197610  0 Aug 19 00:23 ./
+drwxr-xr-x 1 DELL 197610  0 Aug 18 23:19 ../
+drwxr-xr-x 1 DELL 197610  0 Aug 19 00:23 .git/
+-rw-r--r-- 1 DELL 197610 23 Aug 19 00:23 example.txt
+-rw-r--r-- 1 DELL 197610  0 Aug 18 22:25 hello.txt
+-rw-r--r-- 1 DELL 197610 16 Aug 19 00:23 welcome.txt
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git branch -d first
+Deleted branch first (was 2be1991).
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+DELL@DESKTOP-1I1KGJE MINGW64 /E/Branching (master)
+$ git branch
+* master
+
+
+
