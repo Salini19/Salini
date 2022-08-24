@@ -11,34 +11,33 @@ namespace _23August
         static void Main(string[] args)
         {
 
-            int[] Values = (int[])Enum.GetValues(typeof(deptnames));
-            Console.WriteLine("Deptno");
-            foreach (int value in Values)
+            
+            Console.WriteLine("Enter deptname");
+            string dept_name = Console.ReadLine();
+            int k;
+
+            switch (dept_name)
             {
-                Console.WriteLine(value);
+                case "Purchase":
+                    k = (int)deptnames.Purchase;
+                    Console.WriteLine("Dept NO: " +k);
+                    break;
+                case "Sales":
+                    k = (int)deptnames.Sales;
+                    Console.WriteLine("Dept NO: " + k);
+                    break;
+                case "Training":
+                    k = (int)deptnames.Training;
+                    Console.WriteLine("Dept NO: " + k);
+                    break;
+                case "Accounts":
+                    k = (int)deptnames.Accounts;
+                    Console.WriteLine("Dept NO: " + k);
+                    break;
+                default:
+                    break;
+
             }
-
-            Console.WriteLine();
-            string[] Names = Enum.GetNames(typeof(deptnames));
-            Console.WriteLine("Deptname ");
-            foreach (string Name in Names)
-            {
-                Console.WriteLine(Name);
-            }
-            //Console.WriteLine("enter dept name");
-            //string dname = Console.ReadLine();
-
-            //int Deptno = deptnames.dname;
-            //Console.WriteLine(Deptno);
-
-            //string[] values = Enum.GetNames(typeof(deptnames));
-            //int total = 0;
-            //foreach (string s in values)
-            //{
-            //    Console.WriteLine(s);
-            //    total++;
-            //}
-            //Console.WriteLine("Total values in enum type is : {0}", total);
             Console.ReadLine();
             
         }
