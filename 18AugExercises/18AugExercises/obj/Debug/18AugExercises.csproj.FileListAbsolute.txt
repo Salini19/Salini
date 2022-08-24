@@ -1,8 +1,0 @@
-E:\Repos\18AugExercises\18AugExercises\bin\Debug\18AugExercises.exe.config
-E:\Repos\18AugExercises\18AugExercises\bin\Debug\18AugExercises.exe
-E:\Repos\18AugExercises\18AugExercises\bin\Debug\18AugExercises.pdb
-E:\Repos\18AugExercises\18AugExercises\obj\Debug\18AugExercises.csproj.AssemblyReference.cache
-E:\Repos\18AugExercises\18AugExercises\obj\Debug\18AugExercises.csproj.SuggestedBindingRedirects.cache
-E:\Repos\18AugExercises\18AugExercises\obj\Debug\18AugExercises.csproj.CoreCompileInputs.cache
-E:\Repos\18AugExercises\18AugExercises\obj\Debug\18AugExercises.exe
-E:\Repos\18AugExercises\18AugExercises\obj\Debug\18AugExercises.pdb
