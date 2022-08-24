@@ -10,9 +10,9 @@ namespace ReusableCodeLibrary
     {
         public static void Spilt()
         {
-            string newStr = "Welcome, to the world, of C# ,Programming";
-            string[] sep = { "C#" };
-            //char[] sep = { ' ' };
+            string newStr = "Welcome to the world of C# Programming";
+            string[] sep = { "#" };
+        
             int cnt = 2;
             string[] result = newStr.Split(sep, cnt, StringSplitOptions.RemoveEmptyEntries);
             foreach (var item in result)
