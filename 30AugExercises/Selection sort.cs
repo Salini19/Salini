@@ -12,14 +12,15 @@ namespace _30August
         static void Main(string[] args)
         {
             int[] arr = new int[7];
+            Console.WriteLine("Enter the elements:");
             for(int i = 0; i < arr.Length; i++)
             {
-                Console.WriteLine("Enter element");
+                Console.Write("a[{0}] : ",i);
                 arr[i] = Convert.ToInt32(Console.ReadLine());
             }
 
-            Console.WriteLine("Bofore Sorting");
-            PrintArray(arr);
+            Console.WriteLine("Bofore Sorting:");
+            PrintArray(arr); 
             SelectionSort(arr);
             Console.WriteLine("Sorted Array:");
             Console.ForegroundColor = ConsoleColor.Green;

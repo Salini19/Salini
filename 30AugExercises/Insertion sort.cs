@@ -43,10 +43,10 @@ namespace _30August
         {
             int[] arr = new int[6] ;
             int n = arr.Length;
-            
+            Console.WriteLine("Enter the array elements");
             for (int i = 0; i < n; i++)
             {
-                Console.WriteLine("Enter the array element");
+                Console.Write("a[{0}] : ", i);
                 arr[i] = Convert.ToInt32(Console.ReadLine());
             }
             Console.WriteLine("Before Sorting");
