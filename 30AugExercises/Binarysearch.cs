@@ -12,8 +12,7 @@ namespace _30August
         {
             int[] arr = new int[6];      
             
-            AcceptSortandPrintArray(arr);
-            //PrintSortedArray(arr);
+            AcceptSortandPrintArray(arr);       
             Console.WriteLine("Find element to search");
             int f = Convert.ToInt32(Console.ReadLine());
 
@@ -49,9 +48,10 @@ namespace _30August
 
         internal static void AcceptSortandPrintArray(int[] arr)
         {
+            Console.WriteLine("enter the elements");
             for (int i = 0; i < arr.Length; i++)
             {
-                Console.WriteLine("Enter element");
+                Console.Write("a[{0}] : ",i);
                 arr[i] = Convert.ToInt32(Console.ReadLine());
 
             }
