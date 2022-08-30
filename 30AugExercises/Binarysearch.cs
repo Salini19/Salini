@@ -10,7 +10,9 @@ namespace _30August
     {
         static void Main(string[] args)
         {
-            int[] arr = new int[6];      
+            Console.WriteLine("Enter the length of the array");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int[] arr = new int[n];      
             
             AcceptSortandPrintArray(arr);       
             Console.WriteLine("Find element to search");

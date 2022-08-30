@@ -11,9 +11,12 @@ namespace _30August
     {
         static void Main(string[] args)
         {
-            int[] arr = new int[7];
+            Console.WriteLine("Enter the length of the array");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int[] arr = new int[n];
+
             Console.WriteLine("Enter the elements:");
-            for(int i = 0; i < arr.Length; i++)
+            for(int i = 0; i < n; i++)
             {
                 Console.Write("a[{0}] : ",i);
                 arr[i] = Convert.ToInt32(Console.ReadLine());

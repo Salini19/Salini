@@ -41,8 +41,10 @@ namespace _30August
 
         static void Main(string[] args)
         {
-            int[] arr = new int[6] ;
-            int n = arr.Length;
+            Console.WriteLine("Enter the length of the array");
+            int n = Convert.ToInt32(Console.ReadLine());
+            int[] arr = new int[n] ;
+            
             Console.WriteLine("Enter the array elements");
             for (int i = 0; i < n; i++)
             {
