@@ -29,8 +29,11 @@ namespace Sep1
 
             int ub = n - 1;
             MergeSort(arr,0,ub);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Sorted Array ");
+            Console.ForegroundColor = ConsoleColor.Green;
 
-           // PrintArray(arr);
+            PrintArray(arr);
 
             Console.ReadLine();
         }
@@ -93,14 +96,12 @@ namespace Sep1
                     k++;
                 }
             }
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Sorted Array ");
-            Console.ForegroundColor = ConsoleColor.Green;
+
             for (k = lb; k < ub; k++)
             {
-                Console.Write(arr2[i] + "\t");
+                arr[i]= arr2[k];
             }
-            Console.WriteLine();
+
         }
     }
 }
