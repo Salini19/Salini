@@ -43,13 +43,18 @@ namespace InheritanceandPolymorphism
 		}
 
 
-		public interface A
+		public interface Insert
 		{
-			void Add(BookCatgeory bookCatgeory);
+			void Insertbook();
+			void Insertbook(int bookid, int price);
 		}
 	}
 	public abstract class Category
 	{
 		public abstract void DeleteCategory(int cid);
 	}
+   
+
+   
+
 }
