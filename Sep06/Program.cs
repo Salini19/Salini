@@ -67,7 +67,7 @@ namespace sep6
             else if(choice == 2)
             {
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
-                Console.WriteLine("you have Seleceted Savings Account");
+                Console.WriteLine("you have Seleceted Current Account");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Press \n 1 for Withdraw \n 2 for Depoist \n 3 for BalanceCheck \n 4 for Exit ");
