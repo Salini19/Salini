@@ -11,9 +11,27 @@ namespace Sep9
     {
         static void M1()
         {
-            Thread.Sleep(3000);
-            Console.WriteLine("Thread Name : " + Thread.CurrentThread.Name);
-            Console.WriteLine("Sleep State =" + Thread.CurrentThread.ThreadState);
+            for (int i = 0; i < 10; i++)
+            {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("ThreadName : "+Thread.CurrentThread.Name +" === "+ "Method1 : " + i);
+                Console.ForegroundColor = ConsoleColor.White;
+                if (i == 5)
+                {
+                    Thread.Sleep(5);
+
+                }
+            }
+        }
+
+        static void M2()
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("ThreadName : " + Thread.CurrentThread.Name + " === " + "Method2 : " + j);
+                Console.ForegroundColor = ConsoleColor.White;
+            }
         }
 
        
@@ -22,26 +40,40 @@ namespace Sep9
 
             Thread t1 = new Thread(M1);
             t1.Name = "Thread 1";
-            Thread t2 = new Thread(M1);
+            Thread t2 = new Thread(M2);
             t2.Name = "Thread 2";
             Console.WriteLine("----Before Start---- ");
-            Console.WriteLine("Is T1 alive= " + t1.IsAlive);
-            Console.WriteLine("Is T2 alive= " + t2.IsAlive);
-            Console.WriteLine("Thread state T1= " + t1.ThreadState);
-            Console.WriteLine("Thread state T2= " + t2.ThreadState);
+            Console.WriteLine("T1 is alive= " + t1.IsAlive);
+            Console.WriteLine("T2 is alive= " + t2.IsAlive);
+            Console.WriteLine("State of Thread T1= " + t1.ThreadState);
+            Console.WriteLine("state of Thread T2= " + t2.ThreadState);
+            Console.WriteLine();
 
             t1.Start();
             t2.Start();
+            Console.WriteLine();
             Console.WriteLine("----After Start----");
-            Console.WriteLine("Is T1 alive= " + t1.IsAlive);
-            Console.WriteLine("Is T2 alive= " + t2.IsAlive);
-            Console.WriteLine("Thread state T1= " + t1.ThreadState);
-            Console.WriteLine("Thread state T2= " + t2.ThreadState);
+            Console.WriteLine("T1 is alive= " + t1.IsAlive);
+            Console.WriteLine("T2 is alive= " + t2.IsAlive);
+            Console.WriteLine("State of Thread T1= " + t1.ThreadState);
+            Console.WriteLine("state of Thread T2= " + t2.ThreadState);
+            Console.WriteLine();
 
-            //t1.Abort();
-            //t2.Abort();
-            //Console.WriteLine("Thread state T1= " + t1.ThreadState);
-            //Console.WriteLine("Thread state T2= " + t2.ThreadState);
+            t1.Join();
+            t2.Join();
+            Console.WriteLine();
+            Console.WriteLine("State of Thread T1= " + t1.ThreadState);
+            Console.WriteLine("state of Thread T2= " + t2.ThreadState);
+            Console.WriteLine();
+
+
+
+            t1.Abort();
+            t2.Abort();
+            Console.WriteLine("T1 is alive= " + t1.IsAlive);
+            Console.WriteLine("T2 is alive= " + t2.IsAlive);
+            Console.WriteLine("State of Thread T1= " + t1.ThreadState);
+            Console.WriteLine("state of Thread T2= " + t2.ThreadState);
 
 
 
