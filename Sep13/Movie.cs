@@ -8,6 +8,20 @@ namespace UserModule
 {
     public class Movie
     {
+		private string  _mname;
+
+		public string  MovieName
+		{
+			get { return _mname; }
+			set { _mname = value; }
+		}
+		private string  _genre;
+
+		public string  Genre
+		{
+			get { return _genre; }
+			set { _genre = value; }
+		}
 		private string _lang;
 
 		public string Language
@@ -15,66 +29,65 @@ namespace UserModule
 			get { return _lang; }
 			set { _lang = value; }
 		}
-		private string _genre;
+		private double _price;
 
-		public string Genre
+		public double Price
 		{
-			get { return _genre; }
-			set { _genre = value; }
+			get { return _price; }
+			set { _price = value; }
 		}
-		private string _name;
+		private int _available;
 
-		public string MovieName
+		public int Stock
 		{
-			get { return _name; }
-			set { _name = value; }
+			get { return _available; }
+			set { _available = value; }
 		}
-        private double _price;
 
-        public double Price
-        {
-            get { return _price; }
-            set { _price = value; }
-        }
+	
+		
+		public void Searchbylanguage(List<Movie> list)
+		{
+            Console.WriteLine("These language movies are available Hindi,English,Tamil,Telugu,Kanada");
+            Console.WriteLine("Enter languae to search Movie");
+            string lang = Console.ReadLine();
+            List<Movie> search = list.FindAll(x => x.Language == lang);
+			if (search != null)
+			{
+				for (int i = 0; i < search.Count; i++)
+				{
+                    Console.WriteLine("Movie    : " + search[i].MovieName);
+                    Console.WriteLine("Genre    : " + search[i].Genre);
+                    Console.WriteLine("Language : " + search[i].Language);
+                    Console.WriteLine();
+                }
 
-        public static void Rent(List<Movie> movielist, int Stock, double addtotal, int n)
-        {
-            Console.WriteLine("Accept the Deal\n 1.yes 2.No");
-            int no = int.Parse(Console.ReadLine());
-            if (no == 1)
+			}
+			else
+			{
+				Console.WriteLine("This language is not available");
+			}
+		}
+		public void SearchByGenre(List<Movie> list)
+		{
+            Console.WriteLine("These Genres are available..Action.Comedy,Drama,Romance,Thriller,Adventure");
+            Console.WriteLine("Enter Genre to search Movie");
+            string genre = Console.ReadLine();
+            List<Movie> search1 = list.FindAll(x => x.Genre == genre);
+            if (search1 != null)
             {
-                List<Movie> Moviestock = new List<Movie>();
-                for (int i = 1; i <= n; i++)
+                foreach (Movie item in search1)
                 {
-                    Console.WriteLine("Enter the {0} movie you want to add", i);
-                    string search1 = Console.ReadLine();
-                    Movie Searchedmovies1 = movielist.Find(x => x.Genre == search1 || x.Language == search1 || x.MovieName == search1);
-                    Moviestock.Add(Searchedmovies1);
-                    movielist.Remove(Searchedmovies1);
-                    Stock--;
-                    Console.WriteLine("Enter how many days do you want for the Rent");
-                    int days = int.Parse(Console.ReadLine());
-                    double price = (days * (0.10 * Searchedmovies1.Price) * (0.18 * Searchedmovies1.Price));
-                    addtotal += price;
+                    Console.WriteLine("Movie    : " + item.MovieName);
+                    Console.WriteLine("Genre    : " + item.Genre);
+                    Console.WriteLine("Language : " + item.Language);
+                    Console.WriteLine();
                 }
-                Console.WriteLine("The total price of the CDs : Rs." + addtotal);
-                foreach (var items in Moviestock)
-                {
-                    Console.WriteLine("The movies you selected are");
-                    Console.WriteLine(items.MovieName);
-                    Console.WriteLine(items.Language);
-                    Console.WriteLine(items.Genre);
-                }
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("The Available stock of movies are " + Stock);
-                Console.WriteLine();
-                Console.ForegroundColor = ConsoleColor.White;
             }
             else
             {
-                Console.WriteLine("You cannot add these Movies");
+                Console.WriteLine("This genre is not available");
             }
-
         }
-    }
+	}
 }
