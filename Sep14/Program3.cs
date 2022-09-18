@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace Sep14
 {
@@ -26,23 +27,20 @@ namespace Sep14
             Movie m9 = new Movie() { MovieName = "Circus", Language = "Hindi", Genre = "Comedy", Price = 130 };
             Movie m10 = new Movie() { MovieName = "Gully Boy", Language = "Hindi", Genre = "Drama", Price = 180 };
 
-            list.Add(m1); list.Add(m2); list.Add(m3); list.Add(m4); list.Add(m5); list.Add(m6); list.Add(m7); list.Add(m8);
-            list.Add(m9);
-            list.Add(m10);
+            list.Add(m1); list.Add(m2); list.Add(m3); list.Add(m4); list.Add(m5); list.Add(m6); list.Add(m7); list.Add(m8); list.Add(m9); list.Add(m10); 
+
             List<Movie> Seenmovies = new List<Movie>();
-            foreach (Movie movie in list)
+            foreach (Movie item in list)
             {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(movie.MovieName);
-                Console.WriteLine(movie.Genre);
-                Console.WriteLine(movie.Language);
-                Console.WriteLine("****************************************");
-                Console.WriteLine("Have you seen that Movie \n Y or N");
+
+                Console.WriteLine(item.MovieName);
+                Console.WriteLine();
+                Console.WriteLine("Have you seen that Movie  Y or N");
                 char opt = Convert.ToChar(Console.ReadLine());
 
-                if (opt == 'Y')
+                if (opt == 'Y' || opt=='y')
                 {
-                    Seenmovies.Add(movie);
+                   Seenmovies.Add(item);
 
                 }
 
@@ -50,10 +48,13 @@ namespace Sep14
             Movie[] seen = Seenmovies.ToArray();
             FileStream fs = new FileStream(@"seenmovie.json", FileMode.Create, FileAccess.Write);
             JavaScriptSerializer serial = new JavaScriptSerializer();
-            StreamWriter sw = new StreamWriter(fs); StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
+            StreamWriter sw = new StreamWriter(fs); 
+            
             Console.WriteLine(sb);
             serial.Serialize(seen, sb);
-            sw.Write(sb + "\n");
+            sw.WriteLine(sb);
+            Console.WriteLine(sb);
 
 
 

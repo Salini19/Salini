@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace ClassLibrary1
     [Serializable()]
     public class Movie
     {
+        public static int Stock;
         private string _lang;
 
         public string Language
@@ -44,47 +46,135 @@ namespace ClassLibrary1
         public DateTime Rented_time { get; set; }
 
         public double addtotal { get; set; }
-        public void Searchbylanguage(List<Movie> list)
+          
+        
+
+        public void RentCD(List<Movie> movielist, List<Movie> Moviestock)
         {
-            Console.WriteLine("These language movies are available Hindi,English,Tamil,Telugu,Kanada");
-            Console.WriteLine("Enter languae to search Movie");
-            string lang = Console.ReadLine();
-            List<Movie> search = list.FindAll(x => x.Language == lang);
-            if (search != null)
+            double addtotal = 0;
+            Console.WriteLine("Accept the Deal\n 1.yes 2.No");
+            int no = int.Parse(Console.ReadLine());
+            Console.WriteLine("The movies available for you are");
+            foreach (Movie items in movielist)
             {
-                for (int i = 0; i < search.Count; i++)
+
+                Console.Write(items.MovieName + " ");
+                Console.Write(items.Language + " ");
+                Console.Write(items.Genre + " ");
+                Console.WriteLine(items.Price + " ");
+                Console.Write(items.exetime + " ");
+                Console.WriteLine();
+            }
+            if (no == 1)
+            {
+
+                Console.WriteLine("Enter the number of movies to Rent");
+                int n = int.Parse(Console.ReadLine());
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                for (int i = 1; i <= n; i++)
                 {
-                    Console.WriteLine("Movie    : " + search[i].MovieName);
-                    Console.WriteLine("Genre    : " + search[i].Genre);
-                    Console.WriteLine("Language : " + search[i].Language);
+                    Console.WriteLine("Enter the {0} movie you want to add", i);
+                    string search1 = Console.ReadLine();
+                    Movie Searchedmovies1 = movielist.Find(x => x.Genre == search1 || x.Language == search1 || x.MovieName
+                == search1);
+                    Moviestock.Add(Searchedmovies1);
+                    movielist.Remove(Searchedmovies1);
+                    Stock--;
+                    Console.WriteLine("Enter how many days do you want for the Rent");
+                    int days = int.Parse(Console.ReadLine());
+                    double price = (days * (0.10 * Searchedmovies1.Price) * (0.18 * Searchedmovies1.Price));
+                    addtotal += price;
+                }
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("The total price of the CDs : Rs." + addtotal);
+                foreach (var items in Moviestock)
+                {
+                    Console.WriteLine("The movies you rented are");
+                    Console.Write(items.MovieName + " ");
+                    Console.Write(items.Language + " ");
+                    Console.Write(items.Genre + " ");
+                    Console.Write(items.exetime + " ");
                     Console.WriteLine();
+                }
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("The Available stock of movies are " + Stock);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("The movies available for you are");
+                Console.WriteLine();
+                foreach (Movie items in movielist)
+                {
+
+                    Console.Write(items.MovieName + " ");
+                    Console.Write(items.Language + " ");
+                    Console.Write(items.Genre + " ");
+                    Console.Write(items.exetime + " ");
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("You cannot add these Movies");
+            }
+
+        }
+
+        public void ReturnCD(List<Movie> movielist, List<Movie> Moviestock)
+        {
+            foreach (Movie items in Moviestock)
+            {
+                Console.WriteLine("The movies you Rented are");
+                Console.Write(items.MovieName + " ");
+                Console.Write(items.Language + " ");
+                Console.Write(items.Genre + " ");
+                Console.Write(items.exetime + " ");
+                Console.WriteLine();
+            }
+            char op = 'Y';
+            while (op == 'Y')
+            {
+                Console.WriteLine("Enter the movie name you want to return");
+                string mov = Console.ReadLine();
+                Movie rem = Moviestock.Find(x => x.MovieName == mov);
+                Moviestock.Remove(rem);
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Movie returned sucessfully");
+                foreach (Movie items in Moviestock)
+                {
+                    Console.WriteLine("The movies you Rented are");
+                    Console.Write(items.MovieName + " ");
+                    Console.Write(items.Language + " ");
+                    Console.Write(items.Genre + " ");
+                    Console.Write(items.exetime + " ");
+                    Console.WriteLine();
+
+                }
+                movielist.Add(rem);
+                Stock++;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("The Available stock of movies are " + Stock);
+                Console.WriteLine();
+                Console.WriteLine("The movies available for you are");
+                Console.WriteLine();
+                foreach (Movie items in movielist)
+                {
+
+                    Console.Write(items.MovieName + " ");
+                    Console.Write(items.Language + " ");
+                    Console.Write(items.Genre + " ");
+                    Console.Write(items.exetime + " ");
+                    Console.WriteLine();
+                }
+                Console.Write("Do you want to return another movie (Y/N) ? ");
+                char an = Convert.ToChar(Console.ReadLine());
+                if (an == 'Y' || an == 'y')
+                {
+                    op = 'Y';
+                }
+                else
+                {
+                    break;
                 }
 
-            }
-            else
-            {
-                Console.WriteLine("This language is not available");
-            }
-        }
-        public void SearchByGenre(List<Movie> list)
-        {
-            Console.WriteLine("These Genres are available..Action.Comedy,Drama,Romance,Thriller,Adventure");
-            Console.WriteLine("Enter Genre to search Movie");
-            string genre = Console.ReadLine();
-            List<Movie> search1 = list.FindAll(x => x.Genre == genre);
-            if (search1 != null)
-            {
-                foreach (Movie item in search1)
-                {
-                    Console.WriteLine("Movie    : " + item.MovieName);
-                    Console.WriteLine("Genre    : " + item.Genre);
-                    Console.WriteLine("Language : " + item.Language);
-                    Console.WriteLine();
-                }
-            }
-            else
-            {
-                Console.WriteLine("This genre is not available");
             }
         }
         public double Amount(Movie movie)
