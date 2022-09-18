@@ -42,17 +42,17 @@ namespace CommonOptions
                 Console.WriteLine("Incorrect Password");
             }
         }
-        public void userpro(List<User> userslist)
+        public void ViewProfile(List<User> users)
         {
             Console.WriteLine("Enter UserName");
             string name = Console.ReadLine();
             Console.WriteLine("Enter Password");
             string pass = Console.ReadLine();
-            User sel1 = userslist.Find(x => x.UserName == name);
+            User sel1 = users.Find(x => x.UserName == name);
 
             if (sel1 != null)
             {
-                User sel2 = userslist.Find(x => sel1.Password == pass);
+                User sel2 = users.Find(x => sel1.Password == pass);
                 if (sel2 != null)
                 {
                     Console.WriteLine("UserName : " + sel1.UserName);
@@ -60,6 +60,41 @@ namespace CommonOptions
                     Console.WriteLine("Phone number: " + sel1.PhoneNumber);
                     Console.WriteLine("Added date : " + sel1.Date);
                     Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect Password");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid UserName");
+            }
+        }
+        
+        public void EditProfile(List<User> users)
+        {
+            Console.WriteLine("Enter UserName");
+            string name = Console.ReadLine();
+            Console.WriteLine("Enter Password");
+            string pass = Console.ReadLine();
+            User sel1 = users.Find(x => x.UserName == name);
+
+            if (sel1 != null)
+            {
+                User sel2 = users.Find(x => sel1.Password == pass);
+                if (sel2 != null)
+                {
+                    Console.WriteLine("Your Profile");
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    
+                    Console.WriteLine("UserName : " + sel1.UserName);
+                    Console.WriteLine("Password: " + sel1.Password);
+                    Console.WriteLine("Phone number: " + sel1.PhoneNumber);
+                    Console.WriteLine("Added date : " + sel1.Date);
+                    Console.WriteLine();
+                    Console.ForegroundColor= ConsoleColor.White;
                     Console.WriteLine("Do you want to Update Details\n Yes or No");
                     string op = Console.ReadLine();
                     if (op == "Yes")
@@ -86,9 +121,6 @@ namespace CommonOptions
                         
                         Console.WriteLine("ThankYou");
                     }
-
-
-
                 }
                 else
                 {

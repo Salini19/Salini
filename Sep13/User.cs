@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdminModule;
 
 namespace UserModule
 {
@@ -32,7 +33,10 @@ namespace UserModule
         }
         public DateTime Date { get; set; }
         public int moviesBorrowed = 0;
-        List<Movie> borrowedmovies = new List<Movie>();
+        List<Movie> Borrowedmovies = new List<Movie>();
+        public static event Func<string, bool> Request;
+
+
         public enum Userlvl
         {
             Silver = 2,
@@ -70,56 +74,59 @@ namespace UserModule
             this.Date = d;
         }
 
-        public void BorrowMovie(List<Movie> list)
+       
+        public void ShowMyList()
         {
-            Console.WriteLine("The movies available for you are");
-            foreach (Movie items in list)
+            foreach (var item in this.Borrowedmovies)
             {
-                Console.Write(items.MovieName + " ");
-                Console.Write(items.Language + " ");
-                Console.Write(items.Genre + " ");
-                Console.WriteLine(items.Price + " ");
-
+                Console.WriteLine($"Movie Name : {item.MovieName}");
+                Console.WriteLine($"Language   : {item.Language}"); 
+                Console.WriteLine($"Genere     : {item.Genre}");
                 Console.WriteLine();
             }
-            for (int i = 0; i < this.UserLevel; i++)
+        }
+        public void BorrowMovie(List<Movie> list)
+        {
+           
+            Console.WriteLine("Enter the movie name you want to borrow");
+            string brw = Console.ReadLine();
+            Console.WriteLine("Enter how many days do you want for the Rent");
+            int days = int.Parse(Console.ReadLine());
+            Movie search = list.Find(x => x.MovieName == brw);
+
+            bool ans = Request(search.MovieName);
+            if (ans)
             {
-                Console.WriteLine("Enter the movie name you want to borrow");
-                string brw = Console.ReadLine();
-                Console.WriteLine("Enter how many days do you want for the Rent");
-                int days = int.Parse(Console.ReadLine());
-                Movie search = list.Find(x => x.MovieName == brw);
 
-                if (search != null)
+                if (search.Stock > 0)
                 {
-
-                    this.moviesBorrowed++;
-                    borrowedmovies.Add(search);
-                    list.Remove(search);
-                    search.Stock--;
-                    double totalCost = days * (0.10 * search.Price) * (0.18 * search.Price);
-                    Console.WriteLine($"You Need to Pay {totalCost}");
-                    Console.WriteLine("This movie is added to your list");
-
+                    if (this.moviesBorrowed <= this.UserLevel)
+                    {
+                        search.Stock--;
+                        this.moviesBorrowed++;
+                        Borrowedmovies.Add(search);
+                    }
+                    else
+                    {
+                        Console.WriteLine("User Can't Borrow Anymore Movies upgrade your level");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("This Movie isn't Availabale");
+                    Console.WriteLine($"{search.MovieName} Movie isn't Availabale");
                 }
             }
-            Console.WriteLine("Movies in your list");
-            foreach (var item in borrowedmovies)
+            else
             {
-                Console.WriteLine(item.MovieName);
-                Console.WriteLine(item.Language);
-                Console.WriteLine(item.Genre);
+                Console.WriteLine("Admin Rejected....");
             }
 
         }
         public void ReturnMovie(List<Movie> list)
+
         {
             Console.WriteLine("Movies in your list");
-            foreach (var item in borrowedmovies)
+            foreach (var item in Borrowedmovies)
             {
                 Console.WriteLine(item.MovieName);
                 Console.WriteLine(item.Language);
@@ -132,30 +139,23 @@ namespace UserModule
             int days = int.Parse(Console.ReadLine());
             Movie returnmov = list.Find(x => x.MovieName == ret);
 
-            if (this.borrowedmovies.Contains(returnmov))
+            if (this.Borrowedmovies.Contains(returnmov))
             {
 
                 returnmov.Stock++;
                 this.moviesBorrowed--;
-                borrowedmovies.Remove(returnmov);
+                Borrowedmovies.Remove(returnmov);
+                double totalCost = days * (0.10 * returnmov.Price) * (0.18 * returnmov.Price);
+                Console.WriteLine($"You Need to Pay {totalCost}");
                 Console.WriteLine("Movie Returned Successfully");
-                
+
             }
             else
             {
                 Console.WriteLine("You didn't Borrow this movie..");
             }
 
-        }
-        public void ShowMyList()
-        {
-            foreach (var item in this.borrowedmovies)
-            {
-                Console.WriteLine($"Movie Name : {item.MovieName}");
-                Console.WriteLine($"Language   : {item.Language}"); 
-                Console.WriteLine($"Genere     : {item.Genre}");
-                Console.WriteLine();
-            }
+           
         }
     }
 }

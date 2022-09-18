@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UserModule;
 using CommonOptions;
-using AdminModule;
+
 
 namespace Handsonproj
 {
@@ -33,7 +33,7 @@ namespace Handsonproj
             list.Add(m1); list.Add(m2); list.Add(m3); list.Add(m4); list.Add(m5); list.Add(m6); list.Add(m7); list.Add(m8);
             list.Add(m9);
             list.Add(m10);
-           // Stock = list.Count;
+
 
             List<User> users = new List<User>();
             User user1 = new User("Salini", "Abcde", new DateTime(2022, 02, 2), "Silver");
@@ -64,17 +64,13 @@ namespace Handsonproj
                                 Console.WriteLine($"Hello {name.UserName} ");
                                 Console.WriteLine();
                                 Console.ForegroundColor = ConsoleColor.Yellow;
-                                Console.WriteLine("The Top Rated Movies Rented By others are :");
+                                Console.WriteLine("Top Rated Movies  :");
                                 Console.ForegroundColor = ConsoleColor.White;
                                 foreach (Movie Movies in list)
                                 {
-                                    Console.ForegroundColor = ConsoleColor.Magenta;
-                                    Console.WriteLine(Movies.MovieName);
-                                    Console.WriteLine(Movies.Language);
-                                    Console.WriteLine(Movies.Genre);
-                                    Console.WriteLine();
-                                    Console.ForegroundColor = ConsoleColor.White;
+                                    Console.WriteLine(Movies.MovieName);                                  
                                 }
+                                Console.WriteLine();
                                 string input;
                                 do
                                 {
@@ -110,6 +106,7 @@ namespace Handsonproj
                                             break;
                                         case 3:
 
+                                           
                                             User u1 = new User();
                                             u1.ReturnMovie(list);
                                             break;
@@ -175,7 +172,7 @@ namespace Handsonproj
                     }
                     break;
                 case 3:
-                    Console.WriteLine("Enter 1 for Change Password  2 for to changeprofile");
+                    Console.WriteLine("Enter 1 to Change Password  2  to ViewProfile 3 to EditProfile");
                     Coption opt = new Coption();
                     
                     int n = int.Parse(Console.ReadLine());
@@ -194,8 +191,12 @@ namespace Handsonproj
                     }
                     else if (n == 2)
                     {
-                        opt.userpro(users);
+                        opt.ViewProfile(users);
 
+                    }
+                    else if (n == 3)
+                    {
+                        opt.EditProfile(users);
                     }
                     break;
                 default:
