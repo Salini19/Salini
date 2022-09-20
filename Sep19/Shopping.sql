@@ -42,14 +42,18 @@ add foreign key(prodid) references Products(prodid)
 alter table sales_detail
 drop column qtysold
 
-drop table sales_detail
+
 
 
 alter table sales_detail
-add Qty int primary key
+add Quantity int 
 
+alter table sales_detail
+alter column Quantity int Not Null
 
-
+alter table sales_detail
+add constraint pk_qty
+primary key(Quantity)
 
 
 
