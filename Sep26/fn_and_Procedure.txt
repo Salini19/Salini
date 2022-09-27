@@ -1,0 +1,83 @@
+﻿
+CREATE PROCEDURE [dbo].sp_InsertUser
+	@mem_id numeric(5,0),
+	@mem_name char(20),
+	@acc_date date,
+	@max_books numeric(2,0),
+	@penalty numeric(7,0)
+AS
+	insert into Member(MemberId,Member_Name,Acc_Open_Date,Max_Books_Allowed,Penalty_Amount) values(@mem_id,@mem_name,@acc_date,@max_books,@penalty)
+RETURN 0
+=======================================================================
+CREATE PROCEDURE [dbo].sp_UpdateUser
+	@mem_id numeric(5,0),
+	@mem_name char(20),
+	@acc_date date,
+	@max_books numeric(2,0),
+	@penalty numeric(7,0)
+AS
+	update Member
+	set Member_Name=@mem_name,
+	Acc_Open_Date=@acc_date,
+	Max_Books_Allowed=@max_books,
+	Penalty_Amount=@penalty
+	where MemberId=@mem_id
+
+RETURN 0
+=========================================================================
+
+CREATE FUNCTION fn_ValidateUser
+(
+	@p_userid varchar(50),
+	@p_pwd varchar(50)
+)
+RETURNS bit
+AS
+BEGIN
+
+	DECLARE  @status bit, @uid varchar(50), @pwd varchar(50)
+	Select @uid=userid, @pwd=password from Users
+	where userid=@p_userid;
+	
+	if @pwd=@p_pwd
+	begin
+	set @status=1
+	end
+	else
+	begin
+	set @status=0
+	end
+	return @status
+	
+END
+GO
+====================================================================
+CREATE FUNCTION [dbo].fn_Booklist
+(
+)
+RETURNS TABLE AS RETURN
+(
+	SELECT * from Book
+)
+==================================================================
+CREATE PROCEDURE [dbo].sp_Borrowbook
+    @lib_issueid numeric(10,0),
+	@BookNo int,
+	@mem_id numeric(5,0),
+	@issue_date date,
+	@return_date date
+	@status varchar(30) = 'Issued'
+AS
+	insert into Issue(Lib_Issue_Id,Book_No,MemberId,Issue_Date,Return_Date,status) values(@lib_issueid,@BookNo,@mem_id,@issue_date,@return_date,@status)
+RETURN 0
+=======================================================
+CREATE PROCEDURE [dbo].sp_returnBook
+	@lib_issueid numeric(10,0),
+	@status varchar(30) = 'Returned'
+AS
+	update Issue
+	set status=@status
+	where Lib_Issue_Id=@lib_issueid
+RETURN 0
+=====================================================
+
