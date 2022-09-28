@@ -1,0 +1,12 @@
+E:\Repos\Sep28-DBFirst\DAL_Library\bin\Debug\DAL_Library.dll
+E:\Repos\Sep28-DBFirst\DAL_Library\bin\Debug\DAL_Library.pdb
+E:\Repos\Sep28-DBFirst\DAL_Library\obj\Debug\DAL_Library.csproj.AssemblyReference.cache
+E:\Repos\Sep28-DBFirst\DAL_Library\obj\Debug\DAL_Library.csproj.CoreCompileInputs.cache
+E:\Repos\Sep28-DBFirst\DAL_Library\obj\Debug\DAL_Library.dll
+E:\Repos\Sep28-DBFirst\DAL_Library\obj\Debug\DAL_Library.pdb
+E:\Repos\Sep28-DBFirst\DAL_Library\bin\Debug\DAL_Library.dll.config
+E:\Repos\Sep28-DBFirst\DAL_Library\bin\Debug\EntityFramework.dll
+E:\Repos\Sep28-DBFirst\DAL_Library\bin\Debug\EntityFramework.SqlServer.dll
+E:\Repos\Sep28-DBFirst\DAL_Library\bin\Debug\EntityFramework.xml
+E:\Repos\Sep28-DBFirst\DAL_Library\bin\Debug\EntityFramework.SqlServer.xml
+E:\Repos\Sep28-DBFirst\DAL_Library\obj\Debug\DAL_Library.csproj.CopyComplete
