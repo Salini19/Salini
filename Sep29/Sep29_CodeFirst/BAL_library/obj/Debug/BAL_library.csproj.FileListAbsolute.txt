@@ -1,0 +1,15 @@
+E:\Repos\Sep29_CodeFirst\BAL_library\bin\Debug\BAL_library.dll
+E:\Repos\Sep29_CodeFirst\BAL_library\bin\Debug\BAL_library.pdb
+E:\Repos\Sep29_CodeFirst\BAL_library\obj\Debug\BAL_library.csproj.AssemblyReference.cache
+E:\Repos\Sep29_CodeFirst\BAL_library\obj\Debug\BAL_library.csproj.CoreCompileInputs.cache
+E:\Repos\Sep29_CodeFirst\BAL_library\obj\Debug\BAL_library.dll
+E:\Repos\Sep29_CodeFirst\BAL_library\obj\Debug\BAL_library.pdb
+E:\Repos\Sep29_CodeFirst\BAL_library\bin\Debug\DAL_Library.dll
+E:\Repos\Sep29_CodeFirst\BAL_library\bin\Debug\DAL_Library.pdb
+E:\Repos\Sep29_CodeFirst\BAL_library\obj\Debug\BAL_library.csproj.CopyComplete
+E:\Repos\Sep29_CodeFirst\BAL_library\bin\Debug\BAL_library.dll.config
+E:\Repos\Sep29_CodeFirst\BAL_library\bin\Debug\EntityFramework.dll
+E:\Repos\Sep29_CodeFirst\BAL_library\bin\Debug\EntityFramework.SqlServer.dll
+E:\Repos\Sep29_CodeFirst\BAL_library\bin\Debug\DAL_Library.dll.config
+E:\Repos\Sep29_CodeFirst\BAL_library\bin\Debug\EntityFramework.xml
+E:\Repos\Sep29_CodeFirst\BAL_library\bin\Debug\EntityFramework.SqlServer.xml

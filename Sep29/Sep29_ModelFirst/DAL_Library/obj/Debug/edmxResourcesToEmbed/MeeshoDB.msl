@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MeeshoDBStoreContainer" CdmEntityContainer="MeeshoDBContainer">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="IsTypeOf(MeeshoDB.Customer)">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="Custid" ColumnName="Custid" />
+          <ScalarProperty Name="CustName" ColumnName="CustName" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(MeeshoDB.Product)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+          <ScalarProperty Name="Fabric" ColumnName="Fabric" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CustomerCustid" ColumnName="CustomerCustid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(MeeshoDB.OrderDetails)">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CustomerOrderDetails" TypeName="MeeshoDB.CustomerOrderDetails" StoreEntitySet="CustomerOrderDetails">
+      <EndProperty Name="Customer">
+        <ScalarProperty Name="Custid" ColumnName="Customers_Custid" />
+      </EndProperty>
+      <EndProperty Name="OrderDetails">
+        <ScalarProperty Name="OrderId" ColumnName="OrderDetails_OrderId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

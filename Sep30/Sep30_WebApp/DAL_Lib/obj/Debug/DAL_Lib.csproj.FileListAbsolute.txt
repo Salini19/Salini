@@ -1,0 +1,6 @@
+E:\Repos\Sep30_WebApp\DAL_Lib\bin\Debug\DAL_Lib.dll
+E:\Repos\Sep30_WebApp\DAL_Lib\bin\Debug\DAL_Lib.pdb
+E:\Repos\Sep30_WebApp\DAL_Lib\obj\Debug\DAL_Lib.csproj.AssemblyReference.cache
+E:\Repos\Sep30_WebApp\DAL_Lib\obj\Debug\DAL_Lib.csproj.CoreCompileInputs.cache
+E:\Repos\Sep30_WebApp\DAL_Lib\obj\Debug\DAL_Lib.dll
+E:\Repos\Sep30_WebApp\DAL_Lib\obj\Debug\DAL_Lib.pdb

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MeeshoDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="MeeshoDBContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customers" EntityType="MeeshoDB.Customer" />
+    <EntitySet Name="Products" EntityType="MeeshoDB.Product" />
+    <EntitySet Name="OrderDetails" EntityType="MeeshoDB.OrderDetails" />
+    <AssociationSet Name="CustomerProduct" Association="MeeshoDB.CustomerProduct">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerOrderDetails" Association="MeeshoDB.CustomerOrderDetails">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Custid" />
+    </Key>
+    <Property Name="Custid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustName" Type="String" Nullable="false" />
+    <Property Name="Birthdate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="MeeshoDB.CustomerProduct" FromRole="Customer" ToRole="Product" />
+    <NavigationProperty Name="OrderDetails" Relationship="MeeshoDB.CustomerOrderDetails" FromRole="Customer" ToRole="OrderDetails" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProdID" />
+    </Key>
+    <Property Name="ProdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProdName" Type="String" Nullable="false" />
+    <Property Name="Fabric" Type="String" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="MeeshoDB.CustomerProduct" FromRole="Product" ToRole="Customer" />
+    <Property Name="CustomerCustid" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Customers" Relationship="MeeshoDB.CustomerOrderDetails" FromRole="OrderDetails" ToRole="Customer" />
+  </EntityType>
+  <Association Name="CustomerProduct">
+    <End Type="MeeshoDB.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="MeeshoDB.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Custid" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CustomerCustid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerOrderDetails">
+    <End Type="MeeshoDB.Customer" Role="Customer" Multiplicity="*" />
+    <End Type="MeeshoDB.OrderDetails" Role="OrderDetails" Multiplicity="*" />
+  </Association>
+  <ComplexType Name="Address">
+    <Property Type="Int32" Name="ApartmentNo" Nullable="false" />
+    <Property Type="String" Name="City" Nullable="false" />
+    <Property Type="String" Name="State" Nullable="false" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MeeshoDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MeeshoDBStoreContainer">
+    <EntitySet Name="Customers" EntityType="MeeshoDB.Store.Customers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Products" EntityType="MeeshoDB.Store.Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderDetails" EntityType="MeeshoDB.Store.OrderDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CustomerOrderDetails" EntityType="MeeshoDB.Store.CustomerOrderDetails" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CustomerProduct" Association="MeeshoDB.Store.CustomerProduct">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerOrderDetails_Customer" Association="MeeshoDB.Store.FK_CustomerOrderDetails_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CustomerOrderDetails" EntitySet="CustomerOrderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerOrderDetails_OrderDetails" Association="MeeshoDB.Store.FK_CustomerOrderDetails_OrderDetails">
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+      <End Role="CustomerOrderDetails" EntitySet="CustomerOrderDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Custid" />
+    </Key>
+    <Property Name="Custid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Birthdate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProdID" />
+    </Key>
+    <Property Name="ProdID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProdName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fabric" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="CustomerCustid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerOrderDetails">
+    <Key>
+      <PropertyRef Name="Customers_Custid" />
+      <PropertyRef Name="OrderDetails_OrderId" />
+    </Key>
+    <Property Name="Customers_Custid" Type="int" Nullable="false" />
+    <Property Name="OrderDetails_OrderId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CustomerProduct">
+    <End Role="Customer" Type="MeeshoDB.Store.Customers" Multiplicity="1" />
+    <End Role="Product" Type="MeeshoDB.Store.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Custid" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CustomerCustid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerOrderDetails_Customer">
+    <End Role="Customer" Type="MeeshoDB.Store.Customers" Multiplicity="1" />
+    <End Role="CustomerOrderDetails" Type="MeeshoDB.Store.CustomerOrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Custid" />
+      </Principal>
+      <Dependent Role="CustomerOrderDetails">
+        <PropertyRef Name="Customers_Custid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerOrderDetails_OrderDetails">
+    <End Role="CustomerOrderDetails" Type="MeeshoDB.Store.CustomerOrderDetails" Multiplicity="*" />
+    <End Role="OrderDetails" Type="MeeshoDB.Store.OrderDetails" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="OrderDetails">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="CustomerOrderDetails">
+        <PropertyRef Name="OrderDetails_OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MeeshoDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="MeeshoDBContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="MeeshoDB.Customer" />
+          <EntitySet Name="Products" EntityType="MeeshoDB.Product" />
+          <EntitySet Name="OrderDetails" EntityType="MeeshoDB.OrderDetails" />
+          <AssociationSet Name="CustomerProduct" Association="MeeshoDB.CustomerProduct">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerOrderDetails" Association="MeeshoDB.CustomerOrderDetails">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Custid" />
+          </Key>
+          <Property Name="Custid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustName" Type="String" Nullable="false" />
+          <Property Name="Birthdate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="MeeshoDB.CustomerProduct" FromRole="Customer" ToRole="Product" />
+          <NavigationProperty Name="OrderDetails" Relationship="MeeshoDB.CustomerOrderDetails" FromRole="Customer" ToRole="OrderDetails" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProdID" />
+          </Key>
+          <Property Name="ProdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProdName" Type="String" Nullable="false" />
+          <Property Name="Fabric" Type="String" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="MeeshoDB.CustomerProduct" FromRole="Product" ToRole="Customer" />
+          <Property Name="CustomerCustid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="MeeshoDB.CustomerOrderDetails" FromRole="OrderDetails" ToRole="Customer" />
+        </EntityType>
+        <Association Name="CustomerProduct">
+          <End Type="MeeshoDB.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="MeeshoDB.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Custid" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CustomerCustid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerOrderDetails">
+          <End Type="MeeshoDB.Customer" Role="Customer" Multiplicity="*" />
+          <End Type="MeeshoDB.OrderDetails" Role="OrderDetails" Multiplicity="*" />
+        </Association>
+        <ComplexType Name="Address" >
+          <Property Type="Int32" Name="ApartmentNo" Nullable="false" />
+          <Property Type="String" Name="City" Nullable="false" />
+          <Property Type="String" Name="State" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MeeshoDBStoreContainer" CdmEntityContainer="MeeshoDBContainer">
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="IsTypeOf(MeeshoDB.Customer)">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="Custid" ColumnName="Custid" />
+          <ScalarProperty Name="CustName" ColumnName="CustName" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(MeeshoDB.Product)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+          <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+          <ScalarProperty Name="Fabric" ColumnName="Fabric" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CustomerCustid" ColumnName="CustomerCustid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(MeeshoDB.OrderDetails)">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="CustomerOrderDetails" TypeName="MeeshoDB.CustomerOrderDetails" StoreEntitySet="CustomerOrderDetails">
+      <EndProperty Name="Customer">
+        <ScalarProperty Name="Custid" ColumnName="Customers_Custid" />
+      </EndProperty>
+      <EndProperty Name="OrderDetails">
+        <ScalarProperty Name="OrderId" ColumnName="OrderDetails_OrderId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
