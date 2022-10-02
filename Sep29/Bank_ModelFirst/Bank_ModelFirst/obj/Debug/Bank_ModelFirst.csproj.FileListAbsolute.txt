@@ -1,0 +1,16 @@
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\bin\Debug\Bank_ModelFirst.exe.config
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\bin\Debug\Bank_ModelFirst.exe
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\bin\Debug\Bank_ModelFirst.pdb
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\obj\Debug\Bank_ModelFirst.csproj.AssemblyReference.cache
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\obj\Debug\Bank_ModelFirst.csproj.SuggestedBindingRedirects.cache
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\obj\Debug\Bank_ModelFirst.csproj.CoreCompileInputs.cache
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\obj\Debug\Bank_ModelFirst.exe
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\obj\Debug\Bank_ModelFirst.pdb
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\bin\Debug\EntityFramework.dll
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\bin\Debug\EntityFramework.SqlServer.dll
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\bin\Debug\EntityFramework.xml
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\bin\Debug\EntityFramework.SqlServer.xml
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\obj\Debug\Bank_ModelFirst.csproj.CopyComplete
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\bin\Debug\DAL_BankLib.dll
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\bin\Debug\DAL_BankLib.pdb
+E:\Repos\Bank_ModelFirst\Bank_ModelFirst\bin\Debug\DAL_BankLib.dll.config

@@ -1,0 +1,12 @@
+E:\Repos\Bank_ModelFirst\DAL_BankLib\bin\Debug\DAL_BankLib.dll
+E:\Repos\Bank_ModelFirst\DAL_BankLib\bin\Debug\DAL_BankLib.pdb
+E:\Repos\Bank_ModelFirst\DAL_BankLib\obj\Debug\DAL_BankLib.csproj.AssemblyReference.cache
+E:\Repos\Bank_ModelFirst\DAL_BankLib\obj\Debug\DAL_BankLib.csproj.CoreCompileInputs.cache
+E:\Repos\Bank_ModelFirst\DAL_BankLib\obj\Debug\DAL_BankLib.dll
+E:\Repos\Bank_ModelFirst\DAL_BankLib\obj\Debug\DAL_BankLib.pdb
+E:\Repos\Bank_ModelFirst\DAL_BankLib\bin\Debug\DAL_BankLib.dll.config
+E:\Repos\Bank_ModelFirst\DAL_BankLib\bin\Debug\EntityFramework.dll
+E:\Repos\Bank_ModelFirst\DAL_BankLib\bin\Debug\EntityFramework.SqlServer.dll
+E:\Repos\Bank_ModelFirst\DAL_BankLib\bin\Debug\EntityFramework.xml
+E:\Repos\Bank_ModelFirst\DAL_BankLib\bin\Debug\EntityFramework.SqlServer.xml
+E:\Repos\Bank_ModelFirst\DAL_BankLib\obj\Debug\DAL_BankLib.csproj.CopyComplete
