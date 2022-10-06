@@ -1,0 +1,42 @@
+﻿@model oct4_MVCapp.Models.ProductModel
+
+@{
+    ViewBag.Title = "SearchProd";
+}
+
+<h2>SearchProd</h2>
+
+<div>
+    <h4>ProductModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManufacturedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManufacturedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditProdDetails", new { id = Model.ProductId}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

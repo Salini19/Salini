@@ -1,0 +1,51 @@
+﻿@model IEnumerable<oct4_MVCapp.Models.CustModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AcceptData")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Custid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Custname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Custid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Custname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegistrationTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "NowEditOrderDetails", new { id=item.Custid }) |
+            @Html.ActionLink("Details", "CustDetails", new { id=item.Custid }) |
+            @Html.ActionLink("Delete", "DeleteData", new { id=item.Custid })
+        </td>
+    </tr>
+}
+
+</table>

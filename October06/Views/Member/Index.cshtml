@@ -1,0 +1,37 @@
+﻿@model oct4_MVCapp.Models.MemberModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "AddMember")
+</p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>MemberId</th>
+        <th>MemberName</th>
+        <th>Account Opened Date</th>
+        <th>Max Books Allowed</th>
+        <th>Penatly </th>
+    </tr>
+    @foreach (var item in @ViewBag.Members)
+    {
+        <tr>
+            <td>@item.MemberId</td>
+            <td>@item.MemberName</td>
+            <td>@item.AccountOpenDate</td>
+            <td>@item.MaxBooksAllowed</td>
+            <td>@item.Penalty</td>
+            <td>
+                @Html.ActionLink("Edit", "EditMemberDetails", new { id = item.MemberId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MemberId }) |
+                @Html.ActionLink("Delete", "RemoveMember", new { id = item.MemberId })
+            </td>
+        </tr>
+
+    }
+</table>
+

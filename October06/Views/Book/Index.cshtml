@@ -1,0 +1,27 @@
+﻿@using oct4_MVCapp.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>BookID</th>
+        <th>Book Name</th>
+        <th>Author</th>
+        <th>Price</th>
+
+    </tr>
+    @foreach (BookModel item in (List<BookModel>)@ViewData["MyBooklist"])
+    {
+        <tr>
+            <td>@item.BookId</td>
+            <td>@item.BookName</td>
+            <td>@item.Author</td>
+            <td>@item.Price</td>         
+        </tr>
+
+    }
+</table>
+

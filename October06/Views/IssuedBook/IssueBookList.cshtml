@@ -1,0 +1,28 @@
+﻿@using oct4_MVCapp.Models
+@{
+    ViewBag.Title = "IssueBookList";
+}
+
+<h2>IssuedBookList</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Library IssueId</th>
+        <th>BookID</th>
+        <th>MemberId</th>
+        <th>IssueDate</th>
+        <th>returnDate</th>
+
+    </tr>
+    @foreach (IssuedBookModel item in (List<IssuedBookModel>)TempData["MyBag"])
+    {
+        <tr>
+            <td>@item.Lib_IssueId</td>
+            <td>@item.BookId</td>
+            <td>@item.MemberId</td>
+            <td>@item.IssueDate</td>
+            <td>@item.ReturnDate</td>
+        </tr>
+
+    }
+</table>
+

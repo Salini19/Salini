@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "ProdInsert";
+}
+
+<h2>ProdInsert</h2>
+@using (Html.BeginForm())
+{<div>
+        @Html.Label("Enter Prodid")
+        @Html.TextBox("id")
+        @Html.ValidationMessage("ProductId")
+    </div>
+
+    <div>
+        @Html.Label("Enter Product name")
+        @Html.TextBox("name")
+        @Html.ValidationMessage("ProductName")
+    </div>
+
+    <div>
+        @Html.Label("Enter Manufactured Date")
+        @Html.TextBox("city")
+        @Html.ValidationMessage("ManufacturedDate")
+    </div>
+    <div>
+        <input type="submit" name="CustData" value="Insert Product Data" />
+    </div>
+}
