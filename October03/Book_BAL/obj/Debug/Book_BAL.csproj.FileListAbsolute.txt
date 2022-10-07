@@ -1,0 +1,6 @@
+E:\Repos\WebApp_Oct3\Book_BAL\bin\Debug\Book_BAL.dll
+E:\Repos\WebApp_Oct3\Book_BAL\bin\Debug\Book_BAL.pdb
+E:\Repos\WebApp_Oct3\Book_BAL\obj\Debug\Book_BAL.csproj.AssemblyReference.cache
+E:\Repos\WebApp_Oct3\Book_BAL\obj\Debug\Book_BAL.csproj.CoreCompileInputs.cache
+E:\Repos\WebApp_Oct3\Book_BAL\obj\Debug\Book_BAL.dll
+E:\Repos\WebApp_Oct3\Book_BAL\obj\Debug\Book_BAL.pdb
