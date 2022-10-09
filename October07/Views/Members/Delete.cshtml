@@ -1,0 +1,63 @@
+﻿@model CRUDwithLibDB.Models.Member
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete Member Details</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Acc_Open_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Acc_Open_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Max_Books_Allowed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Max_Books_Allowed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Penalty_Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Penalty_Amount)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

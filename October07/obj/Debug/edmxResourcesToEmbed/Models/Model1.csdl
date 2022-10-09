@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Book_No" />
+    </Key>
+    <Property Name="Book_No" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+    <Property Name="Book_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Author" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="Cost" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="Category" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Issues" Relationship="Self.FK__Issue__Book_No__6E01572D" FromRole="Book" ToRole="Issue" />
+  </EntityType>
+  <EntityType Name="Issue">
+    <Key>
+      <PropertyRef Name="Lib_Issue_Id" />
+    </Key>
+    <Property Name="Lib_Issue_Id" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="Book_No" Type="Decimal" Precision="6" Scale="0" />
+    <Property Name="MemberId" Type="Decimal" Precision="5" Scale="0" />
+    <Property Name="Issue_Date" Type="DateTime" Precision="0" />
+    <Property Name="Return_Date" Type="DateTime" Precision="0" />
+    <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Book" Relationship="Self.FK__Issue__Book_No__6E01572D" FromRole="Issue" ToRole="Book" />
+    <NavigationProperty Name="Member" Relationship="Self.FK__Issue__MemberId__4BAC3F29" FromRole="Issue" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+    <Property Name="Member_Name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Acc_Open_Date" Type="DateTime" Precision="0" />
+    <Property Name="Max_Books_Allowed" Type="Decimal" Precision="2" Scale="0" />
+    <Property Name="Penalty_Amount" Type="Decimal" Precision="7" Scale="2" />
+    <NavigationProperty Name="Issues" Relationship="Self.FK__Issue__MemberId__4BAC3F29" FromRole="Member" ToRole="Issue" />
+  </EntityType>
+  <Association Name="FK__Issue__Book_No__6E01572D">
+    <End Role="Book" Type="Self.Book" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Issue" Type="Self.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Book_No" />
+      </Principal>
+      <Dependent Role="Issue">
+        <PropertyRef Name="Book_No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Issue__MemberId__4BAC3F29">
+    <End Role="Member" Type="Self.Member" Multiplicity="0..1" />
+    <End Role="Issue" Type="Self.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Issue">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Books" EntityType="Self.Book" />
+    <EntitySet Name="Issues" EntityType="Self.Issue" />
+    <EntitySet Name="Members" EntityType="Self.Member" />
+    <AssociationSet Name="FK__Issue__Book_No__6E01572D" Association="Self.FK__Issue__Book_No__6E01572D">
+      <End Role="Book" EntitySet="Books" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Issue__MemberId__4BAC3F29" Association="Self.FK__Issue__MemberId__4BAC3F29">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

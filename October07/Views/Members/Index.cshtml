@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CRUDwithLibDB.Models.Member>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Member Details</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null,null,new {@class = "btn btn-primary"})
+</p>
+<table class="table table-responsive table-hover"">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MemberId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Acc_Open_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Max_Books_Allowed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Penalty_Amount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Acc_Open_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Max_Books_Allowed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Penalty_Amount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MemberId }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Details", "Details", new { id = item.MemberId }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.MemberId }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

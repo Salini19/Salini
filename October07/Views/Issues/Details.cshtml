@@ -1,0 +1,65 @@
+﻿@model CRUDwithLibDB.Models.Issue
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Issue</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Lib_Issue_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lib_Issue_Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Member.Member_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member.Member_Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Book_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.Book_Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Issue_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Issue_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Return_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Return_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+       
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Lib_Issue_Id }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

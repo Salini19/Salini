@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CRUDwithLibDB.Models.Issue>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Issue Details</h2>
+
+<p>
+    @Html.ActionLink("Borrow Book", "Create", null, null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-responsive table-hover"">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Lib_Issue_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member.Member_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Book.Book_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Issue_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Return_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lib_Issue_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member.Member_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book.Book_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Issue_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Return_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Lib_Issue_Id } , new { @class = "btn btn-primary" }) 
+            @Html.ActionLink("Details", "Details", new { id = item.Lib_Issue_Id },new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.Lib_Issue_Id } , new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
