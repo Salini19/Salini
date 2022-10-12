@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Oct11_Core.Models.MemberModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="AddMember">Create New</a>
+</p>
+
+    MemberID = @Context.Session.GetInt32("MemberID")
+    <br />
+    MemberName=@Context.Session.GetString("MemberName")
+    <br/>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MemberId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MemberName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountOpenDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxBooksAllowed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Penalty)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <h3>Product List</h3>
+        @{
+            List<MemberModel> Members = SessionHelper.GetObjectFromJson<List<MemberModel>>(Context.Session, "Members");
+        }
+@foreach (var item in Members) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => @item.MemberId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MemberName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountOpenDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxBooksAllowed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Penalty)
+            </td>
+           @* <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>
