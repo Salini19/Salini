@@ -1,0 +1,9 @@
+E:\Repos\WebAPIDemo\DAL_Lib\obj\Debug\DAL_Lib.csproj.AssemblyReference.cache
+E:\Repos\WebAPIDemo\DAL_Lib\obj\Debug\DAL_Lib.csproj.CoreCompileInputs.cache
+E:\Repos\WebAPIDemo\DAL_Lib\bin\Debug\BAL_LIB.dll
+E:\Repos\WebAPIDemo\DAL_Lib\bin\Debug\BAL_LIB.pdb
+E:\Repos\WebAPIDemo\DAL_Lib\obj\Debug\DAL_Lib.dll
+E:\Repos\WebAPIDemo\DAL_Lib\obj\Debug\DAL_Lib.pdb
+E:\Repos\WebAPIDemo\DAL_Lib\bin\Debug\DAL_Lib.dll
+E:\Repos\WebAPIDemo\DAL_Lib\bin\Debug\DAL_Lib.pdb
+E:\Repos\WebAPIDemo\DAL_Lib\obj\Debug\DAL_Lib.csproj.CopyComplete

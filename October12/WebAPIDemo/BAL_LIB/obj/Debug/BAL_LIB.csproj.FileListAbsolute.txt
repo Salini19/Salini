@@ -1,0 +1,6 @@
+E:\Repos\WebAPIDemo\BAL_LIB\bin\Debug\BAL_LIB.dll
+E:\Repos\WebAPIDemo\BAL_LIB\bin\Debug\BAL_LIB.pdb
+E:\Repos\WebAPIDemo\BAL_LIB\obj\Debug\BAL_LIB.csproj.AssemblyReference.cache
+E:\Repos\WebAPIDemo\BAL_LIB\obj\Debug\BAL_LIB.csproj.CoreCompileInputs.cache
+E:\Repos\WebAPIDemo\BAL_LIB\obj\Debug\BAL_LIB.dll
+E:\Repos\WebAPIDemo\BAL_LIB\obj\Debug\BAL_LIB.pdb

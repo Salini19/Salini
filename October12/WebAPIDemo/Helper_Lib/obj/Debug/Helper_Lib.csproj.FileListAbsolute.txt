@@ -1,0 +1,11 @@
+E:\Repos\WebAPIDemo\Helper_Lib\obj\Debug\Helper_Lib.csproj.AssemblyReference.cache
+E:\Repos\WebAPIDemo\Helper_Lib\obj\Debug\Helper_Lib.csproj.CoreCompileInputs.cache
+E:\Repos\WebAPIDemo\Helper_Lib\bin\Debug\Helper_Lib.dll
+E:\Repos\WebAPIDemo\Helper_Lib\bin\Debug\Helper_Lib.pdb
+E:\Repos\WebAPIDemo\Helper_Lib\bin\Debug\BAL_LIB.dll
+E:\Repos\WebAPIDemo\Helper_Lib\bin\Debug\DAL_Lib.dll
+E:\Repos\WebAPIDemo\Helper_Lib\bin\Debug\BAL_LIB.pdb
+E:\Repos\WebAPIDemo\Helper_Lib\bin\Debug\DAL_Lib.pdb
+E:\Repos\WebAPIDemo\Helper_Lib\obj\Debug\Helper_Lib.csproj.CopyComplete
+E:\Repos\WebAPIDemo\Helper_Lib\obj\Debug\Helper_Lib.dll
+E:\Repos\WebAPIDemo\Helper_Lib\obj\Debug\Helper_Lib.pdb
