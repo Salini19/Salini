@@ -54,30 +54,7 @@ namespace SpecFlowProject1.StepDefinitions
 
         //***********************************************************//
 
-        Product p = new Product();
-        string s1;
-        [Given(@"the ProdName is (.*)")]
-        public void GiventheProdNameIs(string pname)
-        {
-            p.ProdName = pname;
-        }
-
-        [Given(@"the Quantity is (.*)")]
-        public void GiventheQuantityIs(int n)
-        {
-            p.Quantity = n;
-        }
-        [When(@"ProdName Not Null or Empty & Quantity is greater than zero")]
-        public void WhenProdNameNotNullorEmptyQuantityisgreaterthanzero()
-        {
-            s1 = p.AddProduct();
-        }
-        [Then(@"Product should be (.*)")]
-        public void ThenProductshouldbe(string s)
-        {
-            Assert.AreEqual(s1, s);
-        }
-
+        
        
 
     }

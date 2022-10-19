@@ -15,11 +15,7 @@ Scenario: Successful LogOut
     When User LogOut from the Application
     Then Logoutmessage should be Successful Logged Out
 
-Scenario:AddProductToCart
-Given the ProdName is Table
-And the Quantity is 5
-When ProdName Not Null or Empty & Quantity is greater than zero
-Then Product should be Added to Cart
+
 
    
     
