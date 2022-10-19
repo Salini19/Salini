@@ -40,6 +40,32 @@ namespace SpecFlowProject1
             return s;
         }
     }
-   
+    public class Product
+    {
+        //AddProductToCart--- prodname not null or empty and qty >0
+        public int ProdId { get; set; }
+        public string? ProdName { get; set; }
+        public int Quantity { get; set; }
+
+        public string AddProduct(Product p)
+        {
+            List<Product> products = new List<Product>();   
+            string s;
+            if (!string.IsNullOrEmpty(ProdName) && Quantity > 0)
+            {
+                products.Add(p);
+            }
+            if (products.Count > 0)
+            {
+                s = "Added to Cart";
+            }
+            else
+            {
+                s = "Enter valid details";
+            }
+            return s;
+        }
+        
+    }
 
 }

@@ -54,7 +54,30 @@ namespace SpecFlowProject1.StepDefinitions
 
         //***********************************************************//
 
-        
+        Product p = new Product();
+        string s1;
+        [Given(@"the ProdName is (.*)")]
+        public void GiventheProdNameIs(string pname)
+        {
+            p.ProdName = pname;
+        }
+
+        [Given(@"the Quantity is (.*)")]
+        public void GiventheQuantityIs(int n)
+        {
+            p.Quantity = n;
+        }
+        [When(@"Product Added to cart Validate")]
+        public void WhenProductAddedtocartValidate()
+        {
+            s1 = p.AddProduct(p);
+        }
+        [Then(@"Message should be (.*)")]
+        public void ThenMessageshouldbe(string s)
+        {
+            Assert.AreEqual(s1, s);
+        }
+
        
 
     }
